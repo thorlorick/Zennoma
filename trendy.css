@@ -1,0 +1,227 @@
+/* Importing Google Fonts */
+/* We'll use a clean sans-serif for body text and a serif for headings for a modern contrast */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Montserrat:wght@400;500;700&display=swap');
+
+/* General Reset and Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Defining CSS variables for a consistent, theme-based color palette */
+  --primary-color: #181ED9;
+  --secondary-color: #181B80;
+  --text-color: #333333;
+  --light-gray: #f8f8f8;
+  --dark-gray: #000000;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition-speed: 0.4s;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  line-height: 1.7; /* Slightly more space between lines */
+  scroll-behavior: smooth; /* Smooth scrolling for a better user experience */
+}
+
+h1, h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  color: var(--dark-gray);
+}
+
+/* Hero Section Styling */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #ffffff; /* White background for a clean start */
+  position: relative; /* For the gradient overlay */
+  overflow: hidden;
+  animation: fadeIn 1s ease-out; /* Fade in animation on load */
+}
+
+.hero-logo {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  transform: translateY(0);
+  transition: transform 0.6s ease;
+}
+
+.hero-logo:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* CTA Form Styling */
+.cta-form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cta-form input[type="email"] {
+  padding: 15px 20px;
+  width: 320px;
+  max-width: 90%;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: border-color var(--transition-speed) ease;
+}
+
+.cta-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(24, 27, 128, 0.2);
+}
+
+.cta-form button {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.cta-form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(24, 30, 217, 0.3);
+}
+
+/* Main Content Blocks */
+.content-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 60px;
+  opacity: 0; /* Initially hidden for fade-in effect */
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Trigger animation when element is in view */
+.content-block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternate layout for content blocks */
+.content-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Image and Text Styling within Content Blocks */
+.content-block figure {
+  flex-shrink: 0;
+  width: 220px; /* Slightly larger image for more impact */
+  height: 220px;
+  position: relative;
+}
+
+.content-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  border: 6px solid #ffffff;
+  transition: transform 0.5s ease-in-out;
+}
+
+.content-block img:hover {
+  transform: scale(1.05) rotate(2deg); /* Subtle zoom and rotate on hover */
+}
+
+.content-block div {
+  flex: 1;
+  padding: 0;
+  max-width: 600px;
+}
+
+.content-block h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.content-block p {
+  font-size: 1.15rem;
+  color: #555; /* Softer text color */
+}
+
+/* Final Call to Action Section */
+.cta-final {
+  text-align: center;
+  padding: 100px 20px;
+  background-color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.cta-final.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-final h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Makes the heading a gradient */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .content-block {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  
+  .content-block:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .content-block figure {
+    margin-bottom: 20px;
+  }
+
+  .content-block div {
+    text-align: center;
+  }
+
+  .cta-form {
+    flex-direction: column;
+  }
+  
+  .cta-form input[type="email"] {
+    width: 100%;
+  }
+
+  .cta-form button {
+    width: 100%;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
