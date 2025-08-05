@@ -1,14 +1,13 @@
 /* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 
-/* General Reset */
+/* General Reset and Body Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body and Global Styles */
 body {
   font-family: 'Libre Baskerville', serif;
   background-color: #ffffff;
@@ -16,34 +15,38 @@ body {
   line-height: 1.6;
 }
 
-/* Hero Section */
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+/* Hero Section Styling */
 .hero {
   text-align: center;
   padding: 50px 20px;
+  background-color: #f8f8f8; /* Light gray background for contrast */
 }
 
 .hero-logo {
-  width: 100%;
   max-width: 600px;
+  width: 100%;
   height: auto;
 }
 
-.slogan {
-  font-size: 1.5rem;
-  color: #141414;
-  margin-top: 20px;
-}
-
+/* CTA Form Styling */
 .cta-form {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  gap: 10px; /* Space between input and button */
 }
 
 .cta-form input[type="email"] {
-  padding: 10px;
-  width: 280px;
-  max-width: 80%;
+  padding: 12px;
+  width: 300px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 1rem;
 }
 
@@ -51,90 +54,95 @@ body {
   background: linear-gradient(90deg, #181B80, #181ED9);
   color: white;
   border: none;
-  padding: 10px 24px;
+  padding: 12px 28px;
   font-size: 1rem;
+  font-weight: bold;
   border-radius: 5px;
-  margin-left: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .cta-form button:hover {
   opacity: 0.9;
 }
 
+/* Main Content Blocks */
 .content-block {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 20px;
+  gap: 40px; /* Increased space between image and text */
 }
 
-/* Odd sections: image left, text right (default) */
-.content-block:nth-child(odd) {
-  flex-direction: row;
-}
-
-/* Even sections: image right, text left */
+/* Alternate layout for content blocks */
 .content-block:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-/* Thumbnail-style images */
+/* Image and Text Styling within Content Blocks */
+.content-block figure {
+  flex-shrink: 0; /* Prevents image from shrinking on smaller screens */
+  width: 180px;
+  height: 180px;
+}
+
 .content-block img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 4px solid #fff; /* White border for a more polished look */
 }
 
-/* Text styling */
 .content-block div {
   flex: 1;
-  padding: 10px 20px;
+  padding: 0; /* Remove unnecessary padding */
   text-align: left;
 }
 
-
-
-/* Thumbnail-style images */
-.image-left img, .image-right img {
-  width: 150px;       /* thumbnail width */
-  height: 150px;      /* square */
-  object-fit: cover;  /* crop if needed */
-  border-radius: 50%; /* circle */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* Adjust text padding for balance */
-.text-left, .text-right {
-  flex: 1;
-  padding: 10px 20px; /* reduce from 20px */
-  text-align: left;
-}
-
-
-.text-left h2, .text-right h2 {
-  font-size: 1.8rem;
+.content-block h2 {
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
-.text-left p, .text-right p {
+.content-block p {
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
 
-/* Final CTA Section */
+/* Final Call to Action Section */
 .cta-final {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
   background-color: #f4f4f4;
 }
 
 .cta-final h2 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-block {
+    flex-direction: column; /* Stacks image and text vertically */
+    text-align: center;
+  }
+  
+  .content-block:nth-child(even) {
+    flex-direction: column; /* Ensures all blocks stack */
+  }
+
+  .content-block div {
+    text-align: center;
+  }
+
+  .cta-form button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
