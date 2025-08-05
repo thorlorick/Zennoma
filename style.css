@@ -77,12 +77,22 @@ body {
   padding: 10px;
 }
 
+/* Thumbnail-style images */
 .image-left img, .image-right img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 8px;
+  width: 150px;       /* thumbnail width */
+  height: 150px;      /* square */
+  object-fit: cover;  /* crop if needed */
+  border-radius: 50%; /* circle */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
+/* Adjust text padding for balance */
+.text-left, .text-right {
+  flex: 1;
+  padding: 10px 20px; /* reduce from 20px */
+  text-align: left;
+}
+
 
 .text-left, .text-right {
   flex: 1;
