@@ -1,13 +1,7 @@
-/* Importing Google Fonts */
+/* Importing modern Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Montserrat:wght@400;500;700&display=swap');
 
-/* General Reset and Body Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Global Variables for easy theme changes */
 :root {
   --primary-color: #181ED9;
   --secondary-color: #181B80;
@@ -17,6 +11,13 @@
   --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   --border-radius: 8px;
   --transition-speed: 0.4s;
+}
+
+/* Reset and Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -33,13 +34,11 @@ h1, h2 {
   color: var(--dark-gray);
 }
 
-/* Hero Section Styling */
+/* Header and Hero Section */
 .hero {
   text-align: center;
   padding: 80px 20px;
   background-color: #ffffff;
-  position: relative;
-  overflow: hidden;
   animation: fadeIn 1s ease-out;
 }
 
@@ -48,15 +47,9 @@ h1, h2 {
   width: 100%;
   height: auto;
   margin-bottom: 20px;
-  transform: translateY(0);
-  transition: transform 0.6s ease;
 }
 
-.hero-logo:hover {
-  transform: translateY(-5px);
-}
-
-/* CTA Form Styling */
+/* Call-to-Action Form */
 .cta-form {
   margin-top: 30px;
   display: flex;
@@ -108,22 +101,14 @@ h1, h2 {
   max-width: 1400px;
   margin: 0 auto;
   gap: 60px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.content-block.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Alternate layout for content blocks */
+/* Alternating layout for image and text */
 .content-block:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-/* Image and Text Styling within Content Blocks */
+/* Styling the image and its container */
 .content-block figure {
   flex-shrink: 0;
   width: 220px;
@@ -145,6 +130,7 @@ h1, h2 {
   transform: scale(1.05) rotate(2deg);
 }
 
+/* Styling the text content */
 .content-block div {
   flex: 1;
   padding: 0;
@@ -161,19 +147,11 @@ h1, h2 {
   color: #555;
 }
 
-/* Final Call to Action Section */
+/* Final Call-to-Action Section */
 .cta-final {
   text-align: center;
   padding: 100px 20px;
   background-color: #ffffff;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.cta-final.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .cta-final h2 {
@@ -190,6 +168,7 @@ h1, h2 {
     flex-direction: column;
     text-align: center;
     padding: 60px 20px;
+    gap: 20px;
   }
   
   .content-block:nth-child(even) {
@@ -217,7 +196,7 @@ h1, h2 {
   }
 }
 
-/* Keyframe Animations */
+/* Simple keyframe animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
