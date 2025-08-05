@@ -69,26 +69,35 @@ body {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 20px; /* spacing between image and text */
+  gap: 20px;
 }
 
-/* Default: image left, text right */
-.image-left {
-  order: 0;
+/* Odd sections: image left, text right (default) */
+.content-block:nth-child(odd) {
+  flex-direction: row;
 }
 
-.text-right {
-  order: 1;
+/* Even sections: image right, text left */
+.content-block:nth-child(even) {
+  flex-direction: row-reverse;
 }
 
-/* Alternate: image right, text left */
-.image-right {
-  order: 1;
+/* Thumbnail-style images */
+.content-block img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.text-left {
-  order: 0;
+/* Text styling */
+.content-block div {
+  flex: 1;
+  padding: 10px 20px;
+  text-align: left;
 }
+
 
 
 /* Thumbnail-style images */
@@ -107,12 +116,6 @@ body {
   text-align: left;
 }
 
-
-.text-left, .text-right {
-  flex: 1;
-  padding: 20px;
-  text-align: left;
-}
 
 .text-left h2, .text-right h2 {
   font-size: 1.8rem;
