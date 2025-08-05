@@ -1,51 +1,44 @@
-/* Import Libre Baskerville (clean serif similar to Aleo) */
+/* Importing Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
+/* General Reset */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* Body and Global Styles */
 body {
-  margin: 0;
-  padding: 0;
   font-family: 'Libre Baskerville', serif;
-  background-color: #ffffff; /* white background */
-  color: #000000; /* black text */
+  background-color: #ffffff;
+  color: #000000;
   line-height: 1.6;
 }
 
-/* Logo area */
+/* Hero Section */
 .hero {
-  background-color: #ffffff;
-  padding: 40px 20px;
   text-align: center;
+  padding: 50px 20px;
 }
 
 .hero-logo {
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
   height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
-/* Intro paragraph styling */
-.intro {
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  color: #141414; /* from your palette */
-  font-size: 1.15rem;
+.slogan {
+  font-size: 1.5rem;
+  color: #141414;
+  margin-top: 20px;
 }
 
-/* Call to action section */
-.cta {
-  padding: 30px 20px;
-  text-align: center;
+.cta-form {
+  margin-top: 20px;
 }
 
-.cta input[type="email"] {
+.cta-form input[type="email"] {
   padding: 10px;
   width: 280px;
   max-width: 80%;
@@ -54,7 +47,7 @@ body {
   font-size: 1rem;
 }
 
-.cta button {
+.cta-form button {
   background: linear-gradient(90deg, #181B80, #181ED9);
   color: white;
   border: none;
@@ -63,28 +56,58 @@ body {
   border-radius: 5px;
   margin-left: 10px;
   cursor: pointer;
-  font-family: 'Libre Baskerville', serif;
 }
 
-.cta button:hover {
+.cta-form button:hover {
   opacity: 0.9;
 }
 
-/* Footer links */
-footer {
+/* Content Blocks */
+.content-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.image-left, .image-right {
+  flex: 1;
+  padding: 10px;
+}
+
+.image-left img, .image-right img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.text-left, .text-right {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.text-left h2, .text-right h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.text-left p, .text-right p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Final CTA Section */
+.cta-final {
   text-align: center;
-  padding: 30px 20px;
-  font-size: 0.9rem;
-  color: #555;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
 }
 
-footer a {
-  color: #181B80;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-footer a:hover {
-  color: #181ED9;
-  text-decoration: underline;
+.cta-final h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
