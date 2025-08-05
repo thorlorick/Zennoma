@@ -1,69 +1,90 @@
-/* Import Libre Baskerville from Google Fonts */
+/* Import Libre Baskerville (clean serif similar to Aleo) */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Libre Baskerville', serif;
-  background-color: #ffffff; /* clean white */
+  background-color: #ffffff; /* white background */
   color: #000000; /* black text */
+  line-height: 1.6;
 }
 
-/* Centered container */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Logo area */
+.hero {
+  background-color: #ffffff;
   padding: 40px 20px;
   text-align: center;
 }
 
-/* Logo */
-.header img {
+.hero-logo {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto;
-  width: 100%;
-  max-width: 600px; /* make logo big but not too huge */
-  height: auto;
 }
 
-/* Slogan */
-.slogan {
-  font-size: 1.4rem;
-  color: #141414; /* dark grey from logo spec */
-  margin-top: 20px;
+/* Intro paragraph styling */
+.intro {
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #141414; /* from your palette */
+  font-size: 1.15rem;
 }
 
-/* Headings */
-h1, h2, h3 {
-  font-weight: 400;
-  color: #000000;
-  margin-bottom: 20px;
+/* Call to action section */
+.cta {
+  padding: 30px 20px;
+  text-align: center;
 }
 
-/* Link styling */
-a {
-  color: #181B80;
-  text-decoration: none;
+.cta input[type="email"] {
+  padding: 10px;
+  width: 280px;
+  max-width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-a:hover {
-  color: #181ED9;
-  text-decoration: underline;
-}
-
-/* Call-to-action button */
-.button {
+.cta button {
   background: linear-gradient(90deg, #181B80, #181ED9);
   color: white;
   border: none;
-  padding: 12px 28px;
+  padding: 10px 24px;
   font-size: 1rem;
   border-radius: 5px;
-  margin-top: 30px;
+  margin-left: 10px;
   cursor: pointer;
   font-family: 'Libre Baskerville', serif;
 }
 
-.button:hover {
+.cta button:hover {
   opacity: 0.9;
+}
+
+/* Footer links */
+footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+footer a {
+  color: #181B80;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  color: #181ED9;
+  text-decoration: underline;
 }
