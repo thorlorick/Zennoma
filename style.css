@@ -62,7 +62,6 @@ body {
   opacity: 0.9;
 }
 
-/* Content Blocks */
 .content-block {
   display: flex;
   align-items: center;
@@ -70,12 +69,27 @@ body {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  gap: 20px; /* spacing between image and text */
 }
 
-.image-left, .image-right {
-  flex: 1;
-  padding: 10px;
+/* Default: image left, text right */
+.image-left {
+  order: 0;
 }
+
+.text-right {
+  order: 1;
+}
+
+/* Alternate: image right, text left */
+.image-right {
+  order: 1;
+}
+
+.text-left {
+  order: 0;
+}
+
 
 /* Thumbnail-style images */
 .image-left img, .image-right img {
