@@ -1,62 +1,46 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Import Libre Baskerville from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'Libre Baskerville', serif;
-  background-color: #FFFFFF;
-  color: #000000;
-  line-height: 1.6;
+  background-color: #ffffff; /* clean white */
+  color: #000000; /* black text */
 }
 
-/* Container for consistent page padding */
+/* Centered container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-}
-
-/* Logo section */
-.header {
   text-align: center;
-  padding: 40px 0;
 }
 
+/* Logo */
 .header img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
   display: block;
   margin: 0 auto;
+  width: 100%;
+  max-width: 600px; /* make logo big but not too huge */
+  height: auto;
 }
 
 /* Slogan */
 .slogan {
-  text-align: center;
-  font-size: 1.5rem;
-  color: #141414;
+  font-size: 1.4rem;
+  color: #141414; /* dark grey from logo spec */
   margin-top: 20px;
 }
 
-/* Section styling */
-section {
-  padding: 60px 20px;
-  text-align: center;
-}
-
+/* Headings */
 h1, h2, h3 {
   font-weight: 400;
   color: #000000;
+  margin-bottom: 20px;
 }
 
+/* Link styling */
 a {
   color: #181B80;
   text-decoration: none;
@@ -67,17 +51,17 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Button styling */
+/* Call-to-action button */
 .button {
   background: linear-gradient(90deg, #181B80, #181ED9);
-  color: #ffffff;
+  color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 12px 28px;
   font-size: 1rem;
-  font-family: 'Libre Baskerville', serif;
-  border-radius: 4px;
+  border-radius: 5px;
+  margin-top: 30px;
   cursor: pointer;
-  margin-top: 20px;
+  font-family: 'Libre Baskerville', serif;
 }
 
 .button:hover {
