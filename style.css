@@ -1,148 +1,361 @@
-/* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+/*
+ * GENERAL STYLING
+ * Sets up a consistent foundation with a dark theme and modern font.
+ */
+:root {
+  --background-dark: #0a0b12;
+  --background-light: #161a26;
+  --text-light: #e0e6f6;
+  --text-dim: #9aa8c6;
+  --primary-color: #6366f1; /* A vibrant purple for highlights */
+  --positive-color: #34d399; /* Green for positive changes */
+  --negative-color: #f87171; /* Red for negative changes */
+  --border-color: #2a3040;
+  --font-family: 'Inter', sans-serif; /* A popular, modern font */
+}
 
-/* General Reset and Body Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Fallback font for local files */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
-  font-family: 'Libre Baskerville', serif;
-  background-color: #ffffff;
-  color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-dark);
+  color: var(--text-light);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
-  font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text-light);
 }
 
-/* Hero Section Styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #818cf8;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/*
+ * HERO SECTION
+ * A bold, full-screen header with a futuristic feel.
+ */
 .hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 50px 20px;
-  background-color: #f8f8f8; /* Light gray background for contrast */
+  padding: 8rem 2rem 4rem;
+  min-height: 80vh;
+  background: radial-gradient(circle at 50% 10%, var(--background-light), var(--background-dark) 75%);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .hero-logo {
-  max-width: 600px;
-  width: 100%;
+  width: 150px;
   height: auto;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));
 }
 
-/* CTA Form Styling */
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  max-width: 600px;
+}
+
+/*
+ * CTA FORM
+ * A clean, integrated form with a polished, interactive design.
+ */
 .cta-form {
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-  gap: 10px; /* Space between input and button */
+  gap: 0.5rem;
+  margin-top: 2rem;
 }
 
 .cta-form input[type="email"] {
-  padding: 12px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-light);
+  color: var(--text-light);
+  border-radius: 8px;
   font-size: 1rem;
+  width: 300px;
+  max-width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 .cta-form button {
-  background: linear-gradient(90deg, #181B80, #181ED9);
-  color: white;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: var(--text-light);
   border: none;
-  padding: 12px 28px;
+  border-radius: 8px;
   font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-form button:hover {
-  opacity: 0.9;
+  background-color: #4f46e5;
+  transform: translateY(-2px);
 }
 
-/* Main Content Blocks */
+/*
+ * STOCK TICKER
+ * A scrolling ticker that looks sleek and dynamic.
+ */
+.stock-ticker {
+  background-color: var(--background-light);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.ticker-container {
+  display: flex;
+  animation: scroll-left 40s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.ticker-item {
+  display: inline-block;
+  min-width: 200px;
+  padding: 0 2rem;
+  font-size: 1rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.ticker-symbol {
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.ticker-price {
+  font-weight: 600;
+  margin: 0 0.5rem;
+}
+
+.ticker-change {
+  font-weight: 600;
+}
+
+.positive {
+  color: var(--positive-color);
+}
+
+.negative {
+  color: var(--negative-color);
+}
+
+.ticker-separator {
+  color: var(--border-color);
+  opacity: 0.5;
+  padding: 0 1rem;
+  user-select: none;
+}
+
+/*
+ * NAVIGATION BAR
+ * A modern, minimal navigation menu with dropdowns.
+ */
+nav {
+  background-color: var(--background-dark);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+  z-index: 20;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+nav > ul > li {
+  position: relative;
+}
+
+nav > ul > li > a {
+  font-weight: 600;
+  padding: 0.5rem;
+  color: var(--text-dim);
+}
+
+nav > ul > li:hover > a {
+  color: var(--primary-color);
+}
+
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+nav ul ul li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-dim);
+}
+
+nav ul ul li a:hover {
+  color: var(--primary-color);
+  background-color: #1e2230;
+}
+
+/*
+ * CONTENT BLOCKS
+ * A flexible layout for text and images with a clean design.
+ */
 .content-block {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 40px; /* Increased space between image and text */
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 6rem 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
-/* Alternate layout for content blocks */
 .content-block:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-/* Image and Text Styling within Content Blocks */
-.content-block figure {
-  flex-shrink: 0; /* Prevents image from shrinking on smaller screens */
-  width: 180px;
-  height: 180px;
+.content-block figure,
+.content-block > div {
+  flex: 1;
 }
 
 .content-block img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  border-radius: 12px;
   object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border: 4px solid #fff; /* White border for a more polished look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.content-block div {
-  flex: 1;
-  padding: 0; /* Remove unnecessary padding */
-  text-align: left;
+.content-block img:hover {
+  transform: scale(1.02);
 }
 
 .content-block h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .content-block p {
+  color: var(--text-dim);
   font-size: 1.1rem;
-  margin-bottom: 10px;
 }
 
-/* Final Call to Action Section */
+/*
+ * FINAL CTA SECTION
+ * A prominent call-to-action before the final ticker.
+ */
 .cta-final {
   text-align: center;
-  padding: 60px 20px;
-  background-color: #f4f4f4;
+  padding: 6rem 2rem;
+  background-color: var(--background-light);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .cta-final h2 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
-/* Responsive Design */
+.cta-final .cta-form {
+  justify-content: center;
+}
+
+/*
+ * RESPONSIVENESS
+ * Adjusts layout for smaller screens.
+ */
 @media (max-width: 768px) {
-  .content-block {
-    flex-direction: column; /* Stacks image and text vertically */
-    text-align: center;
+  nav > ul {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
   
-  .content-block:nth-child(even) {
-    flex-direction: column; /* Ensures all blocks stack */
-  }
-
-  .content-block div {
+  .content-block {
+    flex-direction: column;
     text-align: center;
   }
 
-  .cta-form button {
-    margin-left: 0;
-    margin-top: 10px;
+  .content-block:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-form input[type="email"] {
+    width: 100%;
   }
 }
