@@ -7,13 +7,13 @@
   --primary: #1e40af;
   --primary-dark: #1e3a8a;
   --secondary: #0ea5e9;
-  --accent: #06b6d4;
+  --accent: #ebeded;
   
   /* Neutrals */
   --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
-  --bg-primary: #ffffff;
+  --bg-primary: #e0fdff
   --bg-secondary: #f8fafc;
   --bg-tertiary: #f1f5f9;
   --border: #e2e8f0;
@@ -267,7 +267,7 @@ nav ul ul a {
 }
 
 .cta-form input[type="email"]:focus {
-  border-color: var(--primary);
+  border-color: var(--accent);
   background: var(--bg-primary);
   box-shadow: 
     0 0 0 4px rgba(99, 102, 241, 0.1),
