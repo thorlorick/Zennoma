@@ -1,12 +1,12 @@
 /* Modern Font Import */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Modern CSS Variables */
+/* Modern CSS Variables - Sapphire Blue Theme */
 :root {
-  /* Primary Colors - Modern Purple/Blue Gradient */
-  --primary: #6366f1;
-  --primary-dark: #4f46e5;
-  --secondary: #8b5cf6;
+  /* Primary Colors - Sapphire Blue Palette */
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #0ea5e9;
   --accent: #06b6d4;
   
   /* Neutrals */
