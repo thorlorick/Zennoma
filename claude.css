@@ -587,29 +587,130 @@ main {
   }
 }
 
-/* Dark mode support (optional) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --border: #334155;
-    --border-light: #475569;
+/* ... (existing styles) ... */
+
+/* Navigation Bar */
+nav {
+  background-color: var(--background-dark);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav > ul > li {
+  position: relative;
+  margin: 0 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 600;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-purple);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+  width: 100%;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--accent-purple-light);
+}
+
+/* Dropdown Menu */
+nav ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a202c;
+  min-width: 150px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-glow);
+  padding: 0.5rem 0;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li:hover > ul,
+nav ul li:focus-within > ul {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+nav ul ul li {
+  margin: 0;
+}
+
+nav ul ul a {
+  padding: 0.75rem 1rem;
+  display: block;
+  text-align: center;
+}
+
+/* Responsive Styles for smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
   }
-  
-  .hero {
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+
+  nav > ul > li {
+    margin: 0.5rem 0;
   }
-  
-  .cta-form input[type="email"] {
-    background: rgba(30, 41, 59, 0.8);
-    color: var(--text-primary);
+
+  nav ul ul {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    min-width: unset;
+    padding: 0;
+    margin-top: 0.5rem;
+    opacity: 1;
   }
-  
-  .cta-form input[type="email"]:focus {
-    background: var(--bg-secondary);
+
+  nav ul li:hover > ul,
+  nav ul li:focus-within > ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav ul ul a {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
   }
 }
