@@ -19,48 +19,164 @@
     
     <section class="crypto-stocks-section">
         <h2>Top Crypto Watchlist</h2>
-        <div class="crypto-list">
-            <div class="crypto-item">
-                <div class="crypto-main-info">
-                    <span class="ticker">ZNM</span>
-                    <span class="name">Zennoma</span>
-                </div>
-                <div class="crypto-price">$15,489.12</div>
-                <div class="crypto-change positive">+12.45%</div>
-            </div>
-            <div class="crypto-item">
-                <div class="crypto-main-info">
-                    <span class="ticker">BTC</span>
-                    <span class="name">Bitcoin</span>
-                </div>
-                <div class="crypto-price">$113,696.00</div>
-                <div class="crypto-change negative">-1.12%</div>
-            </div>
-            <div class="crypto-item">
-                <div class="crypto-main-info">
-                    <span class="ticker">ETH</span>
-                    <span class="name">Ethereum</span>
-                </div>
-                <div class="crypto-price">$3,580.47</div>
-                <div class="crypto-change positive">+0.84%</div>
-            </div>
-            <div class="crypto-item">
-                <div class="crypto-main-info">
-                    <span class="ticker">SOL</span>
-                    <span class="name">Solana</span>
-                </div>
-                <div class="crypto-price">$168.00</div>
-                <div class="crypto-change negative">-0.72%</div>
-            </div>
-            <div class="crypto-item">
-                <div class="crypto-main-info">
-                    <span class="ticker">DOGE</span>
-                    <span class="name">Dogecoin</span>
-                </div>
-                <div class="crypto-price">$0.21</div>
-                <div class="crypto-change positive">+3.83%</div>
-            </div>
-        </div>
+        <!-- Dynamic Stock Ticker -->
+  <div class="stock-ticker">
+    <div class="ticker-container" id="tickerContainer">
+      <div class="ticker-item">
+        <span class="ticker-symbol">ZENNOMA</span>
+        <span class="ticker-price">$<span id="zen-price">127.45</span></span>
+        <span class="ticker-change positive" id="zen-change">+5.2%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">BTC</span>
+        <span class="ticker-price">$<span id="btc-price">43,250.00</span></span>
+        <span class="ticker-change negative" id="btc-change">-2.1%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">ETH</span>
+        <span class="ticker-price">$<span id="eth-price">2,845.67</span></span>
+        <span class="ticker-change positive" id="eth-change">+3.8%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">MONERO</span>
+        <span class="ticker-price">$<span id="xmr-price">165.23</span></span>
+        <span class="ticker-change positive" id="xmr-change">+1.5%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">ZCASH</span>
+        <span class="ticker-price">$<span id="zec-price">45.89</span></span>
+        <span class="ticker-change negative" id="zec-change">-0.8%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">DASH</span>
+        <span class="ticker-price">$<span id="dash-price">78.32</span></span>
+        <span class="ticker-change positive" id="dash-change">+2.3%</span>
+      </div>
+      <span class="ticker-separator">|</span>
+      <div class="ticker-item">
+        <span class="ticker-symbol">SOL</span>
+        <span class="ticker-price">$<span id="sol-price">98.76</span></span>
+        <span class="ticker-change negative" id="sol-change">-1.2%</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic price updates
+    const cryptoData = {
+      'zen-price': { base: 127.45, element: null },
+      'btc-price': { base: 43250.00, element: null },
+      'eth-price': { base: 2845.67, element: null },
+      'xmr-price': { base: 165.23, element: null },
+      'zec-price': { base: 45.89, element: null },
+      'dash-price': { base: 78.32, element: null },
+      'sol-price': { base: 98.76, element: null }
+    };
+
+    const cryptoChanges = {
+      'zen-change': { element: null },
+      'btc-change': { element: null },
+      'eth-change': { element: null },
+      'xmr-change': { element: null },
+      'zec-change': { element: null },
+      'dash-change': { element: null },
+      'sol-change': { element: null }
+    };
+
+    // Initialize elements
+    Object.keys(cryptoData).forEach(id => {
+      cryptoData[id].element = document.getElementById(id);
+    });
+
+    Object.keys(cryptoChanges).forEach(id => {
+      cryptoChanges[id].element = document.getElementById(id);
+    });
+
+    function updatePrices() {
+      Object.keys(cryptoData).forEach(id => {
+        const data = cryptoData[id];
+        const changePercent = (Math.random() - 0.5) * 0.1; // ±5% max change
+        const newPrice = data.base * (1 + changePercent);
+        
+        if (id === 'btc-price' || id === 'eth-price') {
+          data.element.textContent = newPrice.toFixed(2);
+        } else {
+          data.element.textContent = newPrice.toFixed(2);
+        }
+      });
+
+      // Update change percentages
+      Object.keys(cryptoChanges).forEach(id => {
+        const element = cryptoChanges[id].element;
+        const changePercent = (Math.random() - 0.5) * 10; // ±5% change
+        const changeText = changePercent >= 0 ? `+${changePercent.toFixed(1)}%` : `${changePercent.toFixed(1)}%`;
+        
+        element.textContent = changeText;
+        element.className = `ticker-change ${changePercent >= 0 ? 'positive' : 'negative'}`;
+      });
+    }
+
+    // Update prices every 3 seconds
+    setInterval(updatePrices, 3000);
+
+    // Form submission
+    document.querySelectorAll('.cta-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        alert(`Thanks! We'll notify ${email} when Zennoma launches.`);
+        this.querySelector('input[type="email"]').value = '';
+      });
+    });
+
+    // Add some visual flair
+    function addSparkle() {
+      const hero = document.querySelector('.hero');
+      const sparkle = document.createElement('div');
+      sparkle.style.cssText = `
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: radial-gradient(circle, #6366f1, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        left: ${Math.random() * 100}%;
+        top: ${Math.random() * 100}%;
+        animation: sparkle 2s ease-out forwards;
+      `;
+      
+      const keyframes = `
+        @keyframes sparkle {
+          0% { opacity: 0; transform: scale(0); }
+          50% { opacity: 1; transform: scale(1); }
+          100% { opacity: 0; transform: scale(0); }
+        }
+      `;
+      
+      if (!document.querySelector('#sparkle-style')) {
+        const style = document.createElement('style');
+        style.id = 'sparkle-style';
+        style.textContent = keyframes;
+        document.head.appendChild(style);
+      }
+      
+      hero.appendChild(sparkle);
+      
+      setTimeout(() => {
+        if (sparkle.parentNode) {
+          sparkle.parentNode.removeChild(sparkle);
+        }
+      }, 2000);
+    }
+
+    // Add sparkles periodically
+    setInterval(addSparkle, 1500);
+  </script>
     </section>
     
     <section class="content-block">
