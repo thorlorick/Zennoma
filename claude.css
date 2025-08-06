@@ -306,6 +306,97 @@ main {
   margin-bottom: 0;
 }
 
+.crypto-stocks-section {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.crypto-stocks-section h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #30363d;
+    padding-bottom: 10px;
+}
+
+.crypto-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.crypto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #21262d;
+}
+
+.crypto-item:last-child {
+    border-bottom: none;
+}
+
+.crypto-main-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.ticker {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    color: #58a6ff;
+}
+
+.name {
+    font-size: 1rem;
+    color: #8b949e;
+}
+
+.crypto-price {
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: right;
+    width: 120px;
+}
+
+.crypto-change {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: right;
+    width: 70px;
+}
+
+.positive {
+    color: #2ea043; /* Green for positive change */
+}
+
+.negative {
+    color: #f85149; /* Red for negative change */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .crypto-item {
+        flex-wrap: wrap;
+        text-align: left;
+    }
+
+    .crypto-main-info,
+    .crypto-price,
+    .crypto-change {
+        flex-basis: 100%;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+}
+
 /* Final CTA Section */
 .cta-final {
   text-align: center;
