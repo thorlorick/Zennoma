@@ -256,7 +256,7 @@ nav ul ul a {
 .cta-form input[type="email"] {
   padding: 1rem 1.5rem;
   width: min(350px, 100%);
-  border: 2px solid var(--border);
+  border: 2px solid var(--primary);
   border-radius: var(--radius);
   font-size: 1rem;
   font-weight: 500;
