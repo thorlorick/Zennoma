@@ -1,25 +1,34 @@
-/*
- * GENERAL STYLING
- * Sets up a consistent foundation with a dark theme and modern font.
- */
-:root {
-  --background-dark: #0a0b12;
-  --background-light: #161a26;
-  --text-light: #e0e6f6;
-  --text-dim: #9aa8c6;
-  --primary-color: #6366f1; /* A vibrant purple for highlights */
-  --positive-color: #34d399; /* Green for positive changes */
-  --negative-color: #f87171; /* Red for negative changes */
-  --border-color: #2a3040;
-  --font-family: 'Inter', sans-serif; /* A popular, modern font */
-}
+/* Modern Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Fallback font for local files */
-@font-face {
-  font-family: 'Inter';
-  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-  font-weight: 400;
-  font-style: normal;
+/* Modern CSS Variables - Sapphire Blue Theme */
+:root {
+  /* Primary Colors - Sapphire Blue Palette */
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
+  --secondary: #0ea5e9;
+  --accent: #06b6d4;
+  
+  /* Neutrals */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
+  
+  /* Effects */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --blur: 16px;
+  --radius: 16px;
+  --radius-lg: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
