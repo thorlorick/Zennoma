@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zennoma — Secure. Anonymous. Yours.</title>
+
+  <!-- Tailwind CDN (for prototyping only; replace with local CSS if building for production) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Your custom stylesheet -->
+  <!-- <link rel="stylesheet" href="css/claude.css" /> -->
+
+  <!-- SEO + Favicon -->
+  <meta name="description" content="Zennoma is a privacy-first cryptocurrency and digital freedom suite." />
+  <link rel="icon" href="/Assets/img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body class="bg-white text-black antialiased font-sans">
+
+  <!-- Hero / Top Banner -->
+  <header class="flex flex-col items-center justify-center min-h-screen text-center px-4 bg-gradient-to-b from-white to-gray-100 relative overflow-hidden">
+    <img src="/Assets/img/logo.png" alt="Zennoma Logo" class="w-48 mb-6" />
+    
+    <form class="cta-form flex flex-col sm:flex-row gap-2">
+      <input type="email" placeholder="Enter your email" required
+             class="px-4 py-2 border border-gray-300 rounded w-full sm:w-auto" />
+      <button type="submit"
+              class="bg-blue-800 hover:bg-blue-700 text-white px-6 py-2 rounded transition">Notify Me</button>
+    </form>
+  </header>
+
+  <!-- Stock Ticker -->
+  <section aria-label="Live Crypto Prices" class="bg-black text-white py-3 overflow-x-auto whitespace-nowrap text-sm font-mono">
+    <div class="flex gap-4 justify-center" id="tickerContainer">
+      <!-- Ticker items rendered dynamically -->
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <main class="space-y-20 px-4 py-16 max-w-5xl mx-auto text-gray-800 leading-relaxed">
+
+    <!-- Section 1 -->
+    <section class="grid md:grid-cols-2 gap-10 items-center">
+      <figure><img src="Assets/img/thinker.jpg" alt="Thinker statue" class="rounded-lg" /></figure>
+      <div>
+        <h2 class="text-2xl font-bold mb-4">A New Standard for Digital Freedom</h2>
+        <p>In today’s hyper-connected world, privacy is under siege...<br />Zennoma empowers you to move freely in the digital world—with unbreakable privacy, strong encryption, and zero surveillance.</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="grid md:grid-cols-2 gap-10 items-center">
+      <figure><img src="Assets/img/shield.jpg" alt="Privacy shield" class="rounded-lg" /></figure>
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Untraceable by Design</h2>
+        <p>Your privacy isn't an afterthought — it's at the core. With Zennoma, send and receive funds with confidence, anonymously and securely.</p>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="grid md:grid-cols-2 gap-10 items-center">
+      <figure><img src="Assets/img/network.jpg" alt="Decentralized network" class="rounded-lg" /></figure>
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Beyond Currency: A Complete Privacy Suite</h2>
+        <p>Access encrypted messaging, anonymous browsing, and digital tools built for privacy. Zennoma isn’t just a currency — it’s a shield for your digital life.</p>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="text-center mt-20">
+      <h2 class="text-2xl font-bold mb-4">Ready to stay private?</h2>
+      <form class="cta-form flex flex-col sm:flex-row justify-center gap-2">
+        <input type="email" placeholder="Enter your email" required
+               class="px-4 py-2 border border-gray-300 rounded w-full sm:w-auto" />
+        <button type="submit"
+                class="bg-blue-800 hover:bg-blue-700 text-white px-6 py-2 rounded transition">Notify Me</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Optional: Footer -->
+  <footer class="text-center py-8 text-sm text-gray-500">
+    &copy; 2025 Zennoma. All rights reserved.
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Populate ticker
+    const crypto = [
+      { id: "zen", symbol: "ZENNOMA", price: 127.45, change: 5.2 },
+      { id: "btc", symbol: "BTC", price: 43250, change: -2.1 },
+      { id: "eth", symbol: "ETH", price: 2845.67, change: 3.8 },
+      { id: "xmr", symbol: "MONERO", price: 165.23, change: 1.5 },
+      { id: "zec", symbol: "ZCASH", price: 45.89, change: -0.8 },
+      { id: "dash", symbol: "DASH", price: 78.32, change: 2.3 },
+      { id: "sol", symbol: "SOL", price: 98.76, change: -1.2 }
+    ];
+
+    const container = document.getElementById('tickerContainer');
+    function renderTicker() {
+      container.innerHTML = crypto.map(c => `
+        <div class="flex gap-1 items-center">
+          <span class="font-bold">${c.symbol}</span>
+          <span>$${c.price.toFixed(2)}</span>
+          <span class="${c.change >= 0 ? 'text-green-400' : 'text-red-400'}">${c.change >= 0 ? '+' : ''}${c.change.toFixed(1)}%</span>
+        </div>
+      `).join('<span class="mx-2 text-gray-500">|</span>');
+    }
+
+    function updateTicker() {
+      crypto.forEach(c => {
+        const random = (Math.random() - 0.5) * 0.1;
+        c.price *= (1 + random);
+        c.change = random * 100;
+      });
+      renderTicker();
+    }
+
+    renderTicker();
+    setInterval(updateTicker, 3000);
+
+    // Form submission handler
+    document.querySelectorAll('.cta-form').forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const email = form.querySelector('input[type="email"]').value;
+        alert(`Thanks! We'll notify ${email} when Zennoma launches.`);
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
